@@ -40,6 +40,7 @@ INSTALLED_APPS = (
 
     #   Third Party Libraries 
     'rest_framework',
+    'rest_framework.authtoken',
 
     # apps
     'apps.main',
@@ -109,5 +110,8 @@ REST_FRAMEWORK = {
     # ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.AllowAny',
-    )
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
 }

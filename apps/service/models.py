@@ -1,14 +1,13 @@
 from django.db import models
 
-# Create your models here.
+
 class Service(models.Model):
 
-	
+    name = models.CharField(max_length=150)
 
     class Meta:
         verbose_name = "Service"
         verbose_name_plural = "Services"
 
     def __unicode__(self):
-        pass
-    
+        return '%s' % (self.name)
