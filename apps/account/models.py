@@ -16,17 +16,15 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
         Token.objects.create(user=instance)
 
 
-# Models definitios
-class User(models.Model):
-
-    auth_user = models.ForeignKey(User)
+   
+from custom_user.models import AbstractEmailUser
+class CustomUser(AbstractEmailUser):
+    """
+    Example of an EmailUser with a new field date_of_birth
+    """
+    date_of_birth = models.DateField(null=True, blank=True)    
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
+    city = models.CharField(max_length=200)
 
-    class Meta:
-        verbose_name = "User"
-        verbose_name_plural = "Users"
 
-    def __unicode__(self):
-        return "%s" % (self.first_name)
-    
