@@ -7,14 +7,14 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('account', '0001_initial'),
+        ('service', '0002_advert_price'),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='customuser',
-            name='city',
-            field=models.CharField(default='BOGOTA', max_length=200),
+            model_name='advert',
+            name='description',
+            field=models.TextField(default='TOdo bien esto es una descripcion'),
             preserve_default=False,
         ),
     ]

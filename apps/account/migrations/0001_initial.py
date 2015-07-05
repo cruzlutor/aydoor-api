@@ -26,6 +26,7 @@ class Migration(migrations.Migration):
                 ('date_of_birth', models.DateField(null=True, blank=True)),
                 ('first_name', models.CharField(max_length=200)),
                 ('last_name', models.CharField(max_length=200)),
+                ('city', models.CharField(max_length=200)),
                 ('groups', models.ManyToManyField(related_query_name='user', related_name='user_set', to='auth.Group', blank=True, help_text='The groups this user belongs to. A user will get all permissions granted to each of his/her group.', verbose_name='groups')),
                 ('user_permissions', models.ManyToManyField(related_query_name='user', related_name='user_set', to='auth.Permission', blank=True, help_text='Specific permissions for this user.', verbose_name='user permissions')),
             ],
