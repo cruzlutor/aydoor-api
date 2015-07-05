@@ -2,7 +2,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import viewsets
-from .serializers import CustomUserSerializer 
+from .serializers import CustomUserSerializer, CustomUserReadSerializer
 from .models import CustomUser
 from rest_framework import viewsets, mixins
 from rest_framework.decorators import detail_route, list_route
@@ -10,6 +10,7 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from django.contrib.auth.hashers import make_password
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import AllowAny
+
 
 class UserViewSet(
     mixins.CreateModelMixin,
@@ -25,6 +26,7 @@ class UserViewSet(
     def auth(self, request):
         response = ObtainAuthToken().post(request)        
         response.data['id'] = Token.objects.get(key=response.data['token']).user.pk
+        self.serializer_class = CustomUserReadSerializer
         return Response(response.data)
 
     def create(self, request):        

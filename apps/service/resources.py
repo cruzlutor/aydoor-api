@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import (
     ServicioSerializer, AdvertSerializer,
-    BookingSerializer,
+    BookingSerializer, BookingReadSerializer
 )
 from .models import Service, Advert, Booking 
 from rest_framework import viewsets, mixins
@@ -79,6 +79,10 @@ class BookingViewSet(
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
 
+    def retrieve(self, request, pk):        
+        self.serializer_class =  BookingReadSerializer
+        return super(BookingViewSet, self).retrieve(request, pk)
+
     @list_route(methods=['GET'])
     def filtered(self, request):
         self.queryset = self.queryset.filter(state__in=[Booking.REQUEST, Booking.ACCPETED])
@@ -89,7 +93,7 @@ class BookingViewSet(
         else:            
             self.queryset = self.queryset.filter(user_client=request.user)
             
-        serializer = BookingSerializer(self.queryset, many=True)
+        serializer = BookingReadSerializer(self.queryset, many=True)
         return Response(serializer.data)
 
     @detail_route(methods=['POST'])
