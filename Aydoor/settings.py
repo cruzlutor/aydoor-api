@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'custom_user',
     'corsheaders',
+    'django_filters',
 
     # apps
     'apps.account',
@@ -111,5 +112,8 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_FILTER_BACKENDS': (
+        'rest_framework.filters.DjangoFilterBackend',
     ),
 }

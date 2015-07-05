@@ -28,14 +28,19 @@ class Advert(models.Model):
         return '%s' % (self.pk)
 
 
-STATES_BOOKING = ( 
-    (1, 'REQUEST'),
-    (2, 'ACCPETED'),
-    (3, 'CANCELED'),
-    (4, 'FINISHED')
-)
-
 class Booking   (models.Model):    
+
+    REQUEST = 1
+    ACCPETED = 2
+    CANCELED = 3
+    FINISHED = 4
+    STATES_BOOKING = ( 
+        (REQUEST, 'REQUEST'),
+        (ACCPETED, 'ACCPETED'),
+        (CANCELED, 'CANCELED'),
+        (FINISHED, 'FINISHED')
+    )
+
     user_client = models.ForeignKey(CustomUser, related_name='client_advert')
     advert = models.ForeignKey(Advert, related_name='advert_booking')
 

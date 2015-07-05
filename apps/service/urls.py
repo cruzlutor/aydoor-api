@@ -13,7 +13,5 @@ router.register(r'booking', BookingViewSet)
 
 
 urlpatterns = patterns('',                      
-    # url(r'^cooperative/module/$', CooperativeModuleResource.as_view()),
-    # url(r'^cooperative/state/(?P<pk>[0-9]+)/$', CooperativeCreationByExisting.as_view()),
 )
 urlpatterns += router.urls

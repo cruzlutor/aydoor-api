@@ -26,7 +26,7 @@ class UserViewSet(
     def create(self, request):        
         data = {
             "email": request.data.get('username'),
-            "password": make_password(request.data.get('username')),
+            "password": make_password(request.data.get('password')),
             "city": request.data.get('city'),
             "first_name":  request.data.get('first_name'),
             "last_name":  request.data.get('last_name')           

@@ -9,8 +9,6 @@ from .resources import (
 router = DefaultRouter()
 router.register(r'account', UserViewSet)
 
-
-urlpatterns = patterns('',     
-    # url(r'^account/auth/', views.obtain_auth_token),                     
+urlpatterns = patterns('',                         
 )
 urlpatterns += router.urls
