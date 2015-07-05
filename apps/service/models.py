@@ -28,8 +28,7 @@ class Advert(models.Model):
         return '%s' % (self.pk)
 
 
-class Booking   (models.Model):    
-
+class Booking   (models.Model):   
     REQUEST = 1
     ACCPETED = 2
     CANCELED = 3

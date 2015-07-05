@@ -10,6 +10,7 @@ from rest_framework import viewsets, mixins
 from rest_framework.decorators import detail_route, list_route
 from django.shortcuts import get_object_or_404
 from .filters import ServiceFilter
+from rest_framework.permissions import AllowAny
 
 
 class ServiceViewSet(
@@ -21,24 +22,12 @@ class ServiceViewSet(
     """
     queryset = Service.objects.all()
     serializer_class = ServicioSerializer
+    permission_classes = (AllowAny,)
 
     filter_class = ServiceFilter
 
+
     def list(self, request):
-        # services_pk = request.query_params.get('name_service', None)
-        # place_advert = request.query_params.get('place_advert', None) 
-
-        # if (name_service is not None and place_advert is not None):
-        #     place_advert = place_advert.upper()
-
-        #     # Filter data
-        #     # adverts = Advert.objects.filter(user_provider__city__icontains=place_advert)
-        #     # services_pk = adverts.values_list("service")
-        #     # self.queryset =  Service.objects.filter(pk__in=services_pk, name__icontains=name_service)
-
-        #     adverts = Advert.objects.filter(user_provider__city__icontains=place_advert)
-        #     self.queryset =  Service.objects.filter(pk__in=services_pk, name__icontains=name_service)
-
         return super(ServiceViewSet, self).list(request)
 
 
