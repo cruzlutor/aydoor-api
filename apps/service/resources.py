@@ -88,6 +88,7 @@ class BookingViewSet(
             self.queryset = self.queryset.filter(advert__user_provider=request.user)
         else:            
             self.queryset = self.queryset.filter(user_client=request.user)
+            
         serializer = BookingSerializer(self.queryset, many=True)
         return Response(serializer.data)
 

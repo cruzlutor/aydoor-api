@@ -29,5 +29,6 @@ class CustomUser(AbstractEmailUser):
     last_name = models.CharField(max_length=200)
     city = models.CharField(max_length=200)
     avatar = models.ImageField(upload_to=upload_avatar, null=True, blank=True)
+    # avatar = models.URLField(null=True, blank=True)
 
 

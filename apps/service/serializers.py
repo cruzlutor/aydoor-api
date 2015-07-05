@@ -5,7 +5,6 @@ from .models import (
 )
 from apps.account.serializers import CustomUserSerializer
 
-
 class ServicioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Service
@@ -19,5 +18,11 @@ class AdvertSerializer(serializers.ModelSerializer):
 
 
 class BookingSerializer(serializers.ModelSerializer):
+    user_provider = serializers.SerializerMethodField()
+    user_client = CustomUserSerializer(many=False)
+
     class Meta:
         model = Booking
+
+    def get_user_provider(self, obj):
+        return CustomUserSerializer(obj.advert.user_provider).data
