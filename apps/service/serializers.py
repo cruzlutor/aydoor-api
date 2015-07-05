@@ -20,9 +20,13 @@ class AdvertSerializer(serializers.ModelSerializer):
 class BookingSerializer(serializers.ModelSerializer):
     user_provider = serializers.SerializerMethodField()
     user_client = CustomUserSerializer(many=False)
+    service = serializers.SerializerMethodField()
 
     class Meta:
         model = Booking
 
     def get_user_provider(self, obj):
         return CustomUserSerializer(obj.advert.user_provider).data
+
+    def get_service(self, obj):
+        return ServicioSerializer(obj.advert.service).data

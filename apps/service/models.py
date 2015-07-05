@@ -2,7 +2,7 @@ from django.db import models
 from apps.account.models import CustomUser
 
 
-class Service   (models.Model):
+class Service(models.Model):
     name = models.CharField(max_length=150)   
     
     class Meta:
@@ -50,6 +50,7 @@ class Booking   (models.Model):
     address = models.CharField(max_length=150)
     comments = models.TextField(null=True, blank=True)
     state = models.PositiveSmallIntegerField(default=1, max_length=1, choices=STATES_BOOKING)
+    amount = models.PositiveSmallIntegerField(max_length=2)
 
     class Meta:
         verbose_name = "Booking"

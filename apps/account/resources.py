@@ -9,7 +9,7 @@ from rest_framework.decorators import detail_route, list_route
 from rest_framework.authtoken.views import ObtainAuthToken
 from django.contrib.auth.hashers import make_password
 from rest_framework.authtoken.models import Token
-
+from rest_framework.permissions import AllowAny
 
 class UserViewSet(
     mixins.CreateModelMixin,
@@ -19,6 +19,7 @@ class UserViewSet(
     """
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserSerializer
+    permission_classes = (AllowAny,)
 
     @list_route(methods=['POST'])
     def auth(self, request):

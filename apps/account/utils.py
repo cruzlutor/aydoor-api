@@ -9,7 +9,7 @@ def upload_avatar(instance, filename):
     hash.update(str(time.time()))   
     filename_base, filename_ext = os.path.splitext(filename)
     return 'avatars/%s%s%s' % (
-        slugify(instance.name)+'_avatar_',
+        slugify(instance.email)+'_avatar_',
         str(hash.hexdigest()),
         filename_ext.lower(),
     )
