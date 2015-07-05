@@ -7,7 +7,8 @@ class CustomUserAdmin(EmailUserAdmin):
     """
     You can customize the interface of your model here.
     """
-    pass
+    # fields = ( 'date_of_birth', 'first_name', 'last_name', 'city', 'avatar', )
 
 # Register your models here.
 admin.site.register(CustomUser, CustomUserAdmin)
+# admin.site.register(CustomUser)

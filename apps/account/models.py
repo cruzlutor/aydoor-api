@@ -18,6 +18,8 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
 
    
 from custom_user.models import AbstractEmailUser
+from .utils import upload_avatar
+
 class CustomUser(AbstractEmailUser):
     """
     Example of an EmailUser with a new field date_of_birth
@@ -26,5 +28,6 @@ class CustomUser(AbstractEmailUser):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     city = models.CharField(max_length=200)
+    avatar = models.ImageField(upload_to=upload_avatar, null=True, blank=True)
 
 
