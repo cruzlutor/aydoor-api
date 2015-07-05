@@ -4,7 +4,7 @@ Aydoor es un marketplace de servicios que puedes disfrutar a domicilio como por 
 
 ## Contenido
 
-Este repositorio contiene todo el codigo backend desarrollado python-django en menos de 24 horas para la hackaton [AngelHackBog](http://www.hackathon.io/angelhack-bogota) y contiene mucho amor.
+Este repositorio contiene todo el codigo backend desarrollado en python-django y en menos de 24 horas para la hackaton [AngelHackBog](http://www.hackathon.io/angelhack-bogota) y contiene mucho amor.
 
 ## Participantes
 
